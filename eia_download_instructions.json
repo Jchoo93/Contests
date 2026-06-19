@@ -1,0 +1,94 @@
+{
+  "data_source": "Energy Information Administration (EIA)",
+  "website": "https://www.eia.gov/electricity/data/browser/",
+  "api_website": "https://www.eia.gov/opendata/",
+  "api_registration": "https://www.eia.gov/opendata/register.php",
+  "time_period": "2016-01-01 to 2025-12-31",
+  "data_types": [
+    "Net Generation by Source (발전원별 발전량)",
+    "Capacity by Source (발전원별 발전 용량)"
+  ],
+  "fuel_types": [
+    "Coal (석탄)",
+    "Natural Gas (천연가스)",
+    "Nuclear (원자력)",
+    "Wind (풍력)",
+    "Solar (태양광)",
+    "Hydro (수력)",
+    "Biomass (바이오매스)",
+    "Geothermal (지열)",
+    "Other (기타)"
+  ],
+  "download_methods": {
+    "web_interface": {
+      "name": "방법 1: EIA 웹사이트 (가장 간단)",
+      "steps": [
+        {
+          "step": 1,
+          "description": "EIA 전력 데이터 브라우저 접속",
+          "action": "https://www.eia.gov/electricity/data/browser/ 방문"
+        },
+        {
+          "step": 2,
+          "description": "데이터 종류 선택",
+          "action": "왼쪽 메뉴에서:\n  - \"Net Generation by Source\" 또는\n  - \"Electricity Net Generation\" 선택"
+        },
+        {
+          "step": 3,
+          "description": "필터 설정",
+          "action": "Time Period: 2016-01 ~ 2025-12\nFrequency: Monthly 또는 Annual\nSector: Electric power sector"
+        },
+        {
+          "step": 4,
+          "description": "다운로드",
+          "action": "오른쪽 상단 \"Download\" 또는 \"Export\" 버튼 클릭\nCSV 또는 Excel 형식 선택"
+        }
+      ],
+      "expected_files": [
+        "generation_2016_2025.csv",
+        "capacity_2016_2025.csv"
+      ]
+    },
+    "api": {
+      "name": "방법 2: EIA API (자동화)",
+      "prerequisite": "API 키 발급 필요: https://www.eia.gov/opendata/register.php",
+      "api_endpoints": {
+        "generation": {
+          "url": "https://api.eia.gov/v2/electricity/rto/region-data/data/",
+          "description": "Net Generation Data"
+        },
+        "capacity": {
+          "url": "https://api.eia.gov/v2/electricity/rto/region-data/data/",
+          "description": "Capacity Data"
+        }
+      },
+      "legacy_series_ids": {
+        "generation": {
+          "ELEC.GEN.ALL-US.A": "Total Net Generation (Annual)",
+          "ELEC.GEN.COAL-US.A": "Coal Generation (Annual)",
+          "ELEC.GEN.NG-US.A": "Natural Gas Generation (Annual)",
+          "ELEC.GEN.NUC-US.A": "Nuclear Generation (Annual)",
+          "ELEC.GEN.WND-US.A": "Wind Generation (Annual)",
+          "ELEC.GEN.SOL-US.A": "Solar Generation (Annual)",
+          "ELEC.GEN.HPS-US.A": "Hydro Generation (Annual)"
+        },
+        "capacity": {
+          "ELEC.CAPAC.ALL-US.A": "Total Capacity (Annual)",
+          "ELEC.CAPAC.COAL-US.A": "Coal Capacity (Annual)",
+          "ELEC.CAPAC.NG-US.A": "Natural Gas Capacity (Annual)",
+          "ELEC.CAPAC.NUC-US.A": "Nuclear Capacity (Annual)",
+          "ELEC.CAPAC.WND-US.A": "Wind Capacity (Annual)"
+        }
+      }
+    },
+    "direct_download": {
+      "name": "방법 3: 직접 다운로드 링크",
+      "links": {
+        "eia_electricity_data": "https://www.eia.gov/electricity/",
+        "eia_generation_data": "https://www.eia.gov/electricity/data.php",
+        "monthly_generation": "https://www.eia.gov/electricity/monthly/",
+        "annual_generation": "https://www.eia.gov/electricity/annual/"
+      }
+    }
+  }
+}
