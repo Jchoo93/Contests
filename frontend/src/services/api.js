@@ -33,4 +33,15 @@ export const healthAPI = {
   check: () => api.get('/health'),
 }
 
+export const analyticsAPI = {
+  getGenerationMixTrend: (region, days = 7) =>
+    api.get(`/analytics/generation-mix-trend/${region}?days=${days}`),
+  getGenerationMixComparison: () =>
+    api.get('/analytics/generation-mix-comparison'),
+  getMarketInsights: (region) =>
+    api.get(`/analytics/market-insights/${region}`),
+  getVolatilityAnalysis: (region, days = 7) =>
+    api.get(`/analytics/volatility-analysis/${region}?days=${days}`),
+}
+
 export default api

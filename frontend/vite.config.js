@@ -4,7 +4,6 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  root: '.',
   server: {
     port: 5173,
     proxy: {
@@ -16,9 +15,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false,
-    rollupOptions: {
-      input: path.resolve(__dirname, 'public/index.html')
-    }
+    sourcemap: false
   }
 })
