@@ -9,7 +9,9 @@ from database.db import Base, engine
 from models.generation import GenerationData
 from models.pricing import PricingData
 from models.renewable import RenewableData
+from models.mix_trend import GenerationMixTrend
 from api.routes import router
+from api.analytics_routes import router as analytics_router
 from services.scheduler_service import start_daily_update
 from utils.logger import setup_logger
 
@@ -47,6 +49,7 @@ app.add_middleware(
 )
 
 app.include_router(router)
+app.include_router(analytics_router)
 
 @app.get("/")
 def root():
