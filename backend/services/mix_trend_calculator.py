@@ -208,6 +208,8 @@ class MixTrendCalculator:
             # 1년 변화
             solar_pct_change_1y=change_1y.get("solar", 0),
             wind_pct_change_1y=change_1y.get("wind", 0),
+            fossil_pct_change_1y=change_1y.get("fossil", 0),
+            nuclear_pct_change_1y=change_1y.get("nuclear", 0),
             renewable_pct_change_1y=change_1y.get("renewable", 0),
 
             # 트렌드 방향

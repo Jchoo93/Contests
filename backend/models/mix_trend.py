@@ -34,6 +34,8 @@ class GenerationMixTrend(Base):
     # === 연간 변화 ===
     solar_pct_change_1y = Column(Float)
     wind_pct_change_1y = Column(Float)
+    fossil_pct_change_1y = Column(Float)
+    nuclear_pct_change_1y = Column(Float)
     renewable_pct_change_1y = Column(Float)
 
     # === 트렌드 방향 ===
